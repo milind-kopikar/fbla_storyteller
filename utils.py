@@ -8,7 +8,7 @@ import logging
 load_dotenv()
 
 #Function to return the Open AI Client. 
-def get_openai_client():
+def get_openai_client():    
     client = openai.OpenAI()
     return client
 
