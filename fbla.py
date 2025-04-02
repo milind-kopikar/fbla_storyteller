@@ -15,11 +15,9 @@ load_dotenv()
 
 #Get the OpenAI Model parameters
 #Set the OpenAI API key from Streamlit Secrets Key
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+#openai.api_key = st.secrets["OPENAI_API_KEY"]
 client = openai.OpenAI()
 model = utils.get_openai_model() #Get the OpenAI model (e.g: GPT 4o mini)
-
-
 
 
 # Initialize all the sessions in Steamlit. States are used so that code is not called each time the page is refreshed.
@@ -70,11 +68,11 @@ if st.sidebar.button("Upload File"):
         file_upload_status = upload_to_openai(f"{file_uploaded.name}", client)
         #Append the file ID to the session state.
         st.session_state.file_id_list.append(file_upload_status)
-        st.sidebar.write(f"file_upload_status:: {file_upload_status}")
+        #st.sidebar.write(f"file_upload_status:: {file_upload_status}")
 
 # Display those file ids
 if st.session_state.file_id_list:
-    st.sidebar.write("Uploaded File IDs:")
+    #st.sidebar.write("Uploaded File IDs:")
     #Check if these files exist in the flie list.
     file_objects = client.files.list()
     if file_objects == None:
